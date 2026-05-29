@@ -62,5 +62,4 @@ class AbbreviationGroupFactoryTest extends TestCase
             ['32 tussen 3 en 4', '32'],
         ];
     }
-
 }
