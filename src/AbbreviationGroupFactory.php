@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DMT\Address\Abbreviation;
 
 use DMT\Address\Abbreviation\Dutch\Designation\AdditionAbbreviator;

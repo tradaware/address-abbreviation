@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DMT\Test\Address\Abbreviation\Dutch\Designation;
 
 use DMT\Address\Abbreviation\Dutch\Designation\SeparatorAbbreviator;
