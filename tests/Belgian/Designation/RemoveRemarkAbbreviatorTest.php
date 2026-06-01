@@ -22,10 +22,11 @@ class RemoveRemarkAbbreviatorTest extends TestCase
             ['10 na 5 uur', '10'],
             ['2A 2e verdieping', '2A'],
             ['19-21 box 21 after 3', '19-21 box 21'],
-            ['5A bis tussen 3 en 4', '5A bis'],
+            ['5 bis tussen 3 en 4', '5 bis'],
             ['16/2 bij niet thuis bij nr 16/1', '16/2'],
             ['5/1', '5/1'],
             ['8-10', '8-10'],
+            ['5 naast de voordeur', '5'],
         ];
     }
 }

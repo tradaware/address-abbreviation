@@ -55,7 +55,7 @@ final class TypeNameAbbreviator implements AbbreviatorInterface
     public function __construct()
     {
         $this->replacements = array_map(
-            fn($street) => function(array $match) use ($street) {
+            fn($street) => function (array $match) use ($street) {
                 $street = str_replace('$2', $match[2], $street);
 
                 if (!empty($match[1])) {

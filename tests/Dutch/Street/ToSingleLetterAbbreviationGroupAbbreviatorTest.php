@@ -28,7 +28,10 @@ class ToSingleLetterAbbreviationGroupAbbreviatorTest extends TestCase
             new TitlesOfNobilityAbbreviator(),
         ];
 
-        $this->assertEquals($expected, (new ToSingleLetterAbbreviationGroupAbbreviator($checkers))->abbreviate($address));
+        $this->assertEquals(
+            $expected,
+            (new ToSingleLetterAbbreviationGroupAbbreviator($checkers))->abbreviate($address)
+        );
     }
 
     public static function addressProvider(): iterable

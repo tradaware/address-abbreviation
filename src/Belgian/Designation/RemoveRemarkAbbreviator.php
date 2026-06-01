@@ -10,8 +10,9 @@ class RemoveRemarkAbbreviator implements AbbreviatorInterface
 {
     private const array REPLACEMENTS = [
         '~((box|bus|bte)\s[a-z0-9]+)\b(.*)$~i' => '$1',
-        '~(bis[A_Z0-9]?)\b(.*)$~' => '$1',
+        '~(bis[A-Z0-9]?)\b(.*)$~' => '$1',
         '~(\d+([A-Z]|[\-/]\d+)?)\b(.*)$~i' => '$1',
+        '~(\d+)\s.*$~' => '$1'
     ];
 
     /**

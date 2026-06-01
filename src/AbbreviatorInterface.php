@@ -10,7 +10,4 @@ interface AbbreviatorInterface
      * Abbreviate an address part.
      */
     public function abbreviate(string $phrase): string;
-
-
-
 }

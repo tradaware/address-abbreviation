@@ -21,11 +21,16 @@
     }
   },
   "require-dev": {
-    "phpunit/phpunit": "^12.5"
+    "phpunit/phpunit": "^12.5",
+    "squizlabs/php_codesniffer": "^4.0"
   },
   "autoload-dev": {
     "psr-4": {
       "DMT\\Test\\Address\\Abbreviation\\": "tests/"
     }
+  },
+  "scripts": {
+    "phpcs": "phpcs src/ tests/ --standard=PSR12",
+    "phpunit": "phpunit"
   }
 }
