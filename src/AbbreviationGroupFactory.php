@@ -16,20 +16,46 @@ class AbbreviationGroupFactory
     /**
      * Abbreviate Belgian street names.
      */
-    public function getBelgiumStreetAbbreviationGroup(): AbbreviatorInterface
+    public function getBelgiumStreetAbbreviationGroup(int $maxLength): AbbreviatorInterface
     {
         return new AbbreviationGroupAbbreviator([
             new BelgianStreet\TitlesAbbreviator(),
             new BelgianStreet\TypeNameAbbreviator()
-        ], cumulative: true);
+        ], maxLength: $maxLength, cumulative: true);
     }
 
     /**
      * Abbreviate Dutch street names.
      */
-    public function getDutchStreetAbbreviationGroup(): AbbreviatorInterface
+    public function getDutchStreetAbbreviationGroup(int $maxLength): AbbreviatorInterface
     {
-        return $this->getNen5825AbbreviationGroup();
+        $punctuationAbbreviation = new PunctuationAbbreviator();
+        $titleAbbreviation = new DutchStreet\TitlesAbbreviator();
+        $numeralAbbreviation = new DutchStreet\NumeralAbbreviator();
+        $directionAbbreviation = new DutchStreet\DirectionalIndicationAbbreviator();
+        $typeNameAbbreviation = new DutchStreet\TypeNameAbbreviator();
+        $adjectiveAbbreviation = new DutchStreet\AdjectiveAbbreviator();
+        $prepositionAbbreviation = new DutchStreet\PrepositionAbbreviator();
+
+        return new AbbreviationGroupAbbreviator([
+            new AbbreviationGroupAbbreviator([$punctuationAbbreviation], cumulative: true),
+            new AbbreviationGroupAbbreviator([
+                $titleAbbreviation,
+                $numeralAbbreviation,
+                $directionAbbreviation,
+                $typeNameAbbreviation,
+                $adjectiveAbbreviation,
+                $prepositionAbbreviation,
+                new AbbreviationGroupAbbreviator([
+                    $titleAbbreviation,
+                    $numeralAbbreviation,
+                    $directionAbbreviation,
+                    $typeNameAbbreviation,
+                    $adjectiveAbbreviation,
+                    $prepositionAbbreviation,
+                ], cumulative: true)
+            ]),
+        ], maxLength: $maxLength);
     }
 
     /**
@@ -106,7 +132,7 @@ class AbbreviationGroupFactory
             new BelgianDesignation\AdditionAbbreviator(),
             new BelgianDesignation\BoxAbbreviator(),
             new BelgianDesignation\RemoveRemarkAbbreviator(),
-        ]);
+        ], maxLength: 1, cumulative: true);
     }
 
     /**
