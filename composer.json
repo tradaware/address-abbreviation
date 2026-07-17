@@ -1,5 +1,5 @@
 {
-  "name": "tradaware/address-abbreviation",
+  "name": "dmt-software/address-abbreviation",
   "description": "Abbreviate addresses while keeping the meaning intact.",
   "type": "library",
   "license": "MIT",
